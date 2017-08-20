@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+.wrapper {
+    height: 100vh;
+    display: flex;
+    /* Direction of the items, can be row or column */
+    flex-direction: column;
+    background-color:#FEFEFE;
+}
+
+header,
+footer {
+    height: 30px;
+}
+
+main {
+    flex: 1;
+}
+
+.banner {
+    background: url(http://www.runescape.com/img/rsp777/title2/rslogo3.png) no-repeat center;
+    display: block;
+    margin-bottom: 25px;
+    min-height: 135px;
+    text-align: center;
+}
+
+footer {
+    color:#3D3B3B;
+    text-align:center;
+}
