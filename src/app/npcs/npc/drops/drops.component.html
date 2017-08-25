@@ -1,0 +1,46 @@
+<div class="filter">
+  <h4>Hide</h4>
+  <label class="switch">
+    <input type="checkbox" [checked]="false" (change)="filterRarity($event.target.checked, 'always')">
+    <span class="slider round"></span>
+  </label>
+  <label class="switch">
+      
+    <input type="checkbox" [checked]="false" (change)="filterRarity($event.target.checked, 'common')">
+    <span class="slider round"></span>
+  </label>
+  <label class="switch">
+      
+    <input type="checkbox" [checked]="false" (change)="filterRarity($event.target.checked, 'uncommon')">
+    <span class="slider round"></span>
+  </label>
+  <label class="switch">
+      
+    <input type="checkbox" [checked]="false" (change)="filterRarity($event.target.checked, 'rare')">
+    <span class="slider round"></span>
+  </label>
+  <label class="switch">
+      
+    <input type="checkbox" [checked]="false" (change)="filterRarity($event.target.checked, 'very rare')">
+    <span class="slider round"></span>
+  </label>
+</div>
+
+<table class="table" *ngIf="drops">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Rarity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr [hidden]="getFilteredRarity(item.rarity | rename)" *ngFor="let item of drops" [style.background-color]="getStyle(item.rarity | rename | lowercase)">
+      <td><img style="max-width: 30px;max-height: 30px;" src="{{item.icon}}" /></td>
+      <td>{{item.name}}</td>
+      <td>{{item.quantity | rename}}</td>
+      <td>{{item.rarity | rename}}</td>
+    </tr>
+  </tbody>
+</table>

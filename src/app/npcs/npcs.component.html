@@ -1,0 +1,9 @@
+<div class="well">
+  <input #npcName type="text" class="form-control" placeholder="Npc Name" id="txtSearch">
+  <button (click)="getDrops(npcName.value); getNpc(npcName.value)" class="form-control btn btn-large btn-primary" id="btnSearch">Search</button>
+</div>
+
+<div class="display col-md-8" *ngIf="npc && drops">
+  <app-npc [npc]="npc" [imgData]="imgData"></app-npc>
+  <app-drops [drops]="drops"></app-drops>
+</div>
