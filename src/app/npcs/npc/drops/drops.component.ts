@@ -1,3 +1,5 @@
+import { DropFilters } from './../../shared/drop-filters.service';
+import { LootingbagService } from './../lootingbag/lootingbag.service';
 import { IDrop } from './IDrop';
 import { Component, OnInit, Input } from '@angular/core';
 import { Rarity } from './rarity.enum';
@@ -21,7 +23,7 @@ export class DropsComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private lootingBagService: LootingbagService, private dropFilters: DropFilters) { }
 
   ngOnInit() {
     this.filterRarityCollection = {
@@ -30,13 +32,6 @@ export class DropsComponent implements OnInit {
       'uncommon': this.filterUncommon,
       'rare': this.filterRare,
       'very rare': this.filterVeryRare
-    };
-    this.rarityColorCollection = {
-      'always' : '#AFEEEE',
-      'common' : '#56E156',
-      'uncommon' : '#FFED4C',
-      'rare' : '#FF863C',
-      'very rare' : '#FF6262',
     };
   }
 
@@ -54,8 +49,17 @@ export class DropsComponent implements OnInit {
   }
 
   getStyle(rarity: string): string {
-    const _rarity = rarity.trim().toLocaleLowerCase();
-    return this.rarityColorCollection[_rarity];
+    return this.dropFilters.getStyle(rarity);
+  }
+
+  addDropToLootingBag(item: IDrop): void {
+    const _item: IDrop = {
+      'name' : item.name,
+      'icon' : item.icon,
+      'quantity': 1,
+      'rarity': item.rarity
+    };
+    this.lootingBagService.addDrop(_item);
   }
 
 }

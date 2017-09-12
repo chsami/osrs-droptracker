@@ -3,7 +3,14 @@
   <button (click)="getDrops(npcName.value); getNpc(npcName.value)" class="form-control btn btn-large btn-primary" id="btnSearch">Search</button>
 </div>
 
-<div class="display col-md-8" *ngIf="npc && drops">
+<ng-container *ngIf="npc && drops">
+<div class="display col-md-8">
   <app-npc [npc]="npc" [imgData]="imgData"></app-npc>
   <app-drops [drops]="drops"></app-drops>
 </div>
+
+<div class="bag col-md-4">
+  <h2>Looting bag</h2>
+  <app-lootingbag></app-lootingbag>
+</div>
+</ng-container>

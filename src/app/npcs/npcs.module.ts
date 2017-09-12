@@ -1,3 +1,6 @@
+import { DropFilters } from './shared/drop-filters.service';
+import { LootingbagService } from './npc/lootingbag/lootingbag.service';
+import { LootingbagComponent } from './npc/lootingbag/lootingbag.component';
 import { DropsComponent } from './npc/drops/drops.component';
 import { NpcsService } from './npcs.service';
 import { NgModule } from '@angular/core';
@@ -19,9 +22,9 @@ const npcRoutes: Routes = [
     CommonModule, RouterModule.forChild(npcRoutes)
   ],
   declarations: [NpcsComponent, NpcComponent,
-    RenamePipe, DropsComponent
+    RenamePipe, DropsComponent, LootingbagComponent
 ],
-  exports: [NpcComponent, DropsComponent],
-  providers: [NpcsService]
+  exports: [NpcComponent, DropsComponent, LootingbagComponent],
+  providers: [NpcsService, LootingbagService, DropFilters]
 })
 export class NpcsModule { }

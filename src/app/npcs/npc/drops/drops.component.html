@@ -33,6 +33,7 @@
       <th>Item</th>
       <th>Quantity</th>
       <th>Rarity</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -41,6 +42,7 @@
       <td>{{item.name}}</td>
       <td>{{item.quantity | rename}}</td>
       <td>{{item.rarity | rename}}</td>
+      <td><button class="btn btn-success" (click) = "addDropToLootingBag(item)">Add</button></td>
     </tr>
   </tbody>
 </table>

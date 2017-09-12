@@ -13,7 +13,7 @@
     text-align: center;
 }
 
-.display {
+.display, .bag {
     background-color: #dbcba3;
     padding: 20px;
     border: 1px solid black;
