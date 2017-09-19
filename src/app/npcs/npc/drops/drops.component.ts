@@ -56,7 +56,7 @@ export class DropsComponent implements OnInit {
     const _item: IDrop = {
       'name' : item.name,
       'icon' : item.icon,
-      'quantity': 1,
+      'quantity': item.quantity,
       'rarity': item.rarity
     };
     this.lootingBagService.addDrop(_item);

@@ -1,5 +1,5 @@
 import { IDrop } from './../drops/IDrop';
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 
 @Injectable()
 export class LootingbagService {
@@ -26,10 +26,16 @@ export class LootingbagService {
 
     addDrop(item: IDrop): void {
         const drop = this.dropExist(item.name);
-        if (drop != null) {
-            drop.quantity += 1;
-        } else {
-            this._drops.push(item);
+        const q = prompt('Amount of ' + item.name, item.quantity.toString());
+        if (q) {
+            if (drop != null) {
+                drop.quantity += parseInt(q, 10);
+            } else {
+                const _item = item;
+                _item.quantity = 0;
+                _item.quantity += parseInt(q, 10);
+                const index = this._drops.push(item);
+            }
         }
     }
 }

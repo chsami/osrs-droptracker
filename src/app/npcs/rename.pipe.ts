@@ -13,6 +13,8 @@ export class RenamePipe implements PipeTransform {
         return 'Very rare';
       } else if (value.toLowerCase().includes('rare')) {
         return 'Rare';
+      } else if (value.toLowerCase().includes('<')) {
+        return value.substring(0, value.indexOf('<'));
       } else {
         return value;
       }
